@@ -10,7 +10,7 @@ sap.ui.define([
     // }).placeAt("content");
 
     XMLView.create({
-        viewName:"sap.ui.walkthrough.view.App"
+        viewName:"sap.ui.demo.walkthrough.view.App"
     }).then(function(oView){
         oView.placeAt("content");
     })
