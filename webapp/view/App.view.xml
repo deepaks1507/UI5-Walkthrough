@@ -5,5 +5,11 @@
     <Button 
         text = "Say Hi"
         press=".onSayHi"></Button>
+    <Input 
+        value="{/recepient/name}"
+        description="Hello {/recepient/name}"
+        valueLiveUpdate="true"
+        width="60%"/>
+
     <Text text="Hello UI5 again"></Text>
 </mvc:View>
