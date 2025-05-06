@@ -1,25 +1,37 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/resource/ResourceModel"
-],function (UIComponent, JSONModel, ResourceModel) {
+    "sap/ui/model/resource/ResourceModel",
+    "./controller/HelloDialog"
+], function (UIComponent, JSONModel, ResourceModel, HelloDialog) {
     "use strict";
-    return UIComponent.extend("sap.ui.demo.walkthrough.Component",{
+    return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
         metadata: {
             manifest: "json"
         },
-        init:function(){
-            //call the base component's init function
+        init: function () {
+            // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
-
-            //set the data model on the view
-            var OData = {
-                recepient: {
+            // set data models
+            var oData = {
+                recipient: {
                     name: "UI5"
                 }
             };
-            var OModel = new JSONModel(OData);
-            this.setModel(OModel);
-        }
-    })
-})
+            var oModel = new JSONModel(oData);
+            this.setModel(oModel);
+
+            // set dialog
+            this._helloDialog = new HelloDialog(this.getRootControl());
+        },
+
+        exit: function () {
+            this._helloDialog.destroy();
+            delete this._helloDialog;
+        },
+
+        openHelloDialog : function () {
+            this._helloDialog.open();
+        } 
+    });
+});
