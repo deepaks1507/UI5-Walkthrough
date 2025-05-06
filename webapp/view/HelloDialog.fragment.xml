@@ -5,6 +5,11 @@
         id="helloDialog"
         title="Hello {/recepient/name}">
         <content>
+            <core:Icon 
+                src="sap-icon://hello-world"
+                size="8rem"
+                class="sapUiMediumMargin">
+            </core:Icon>
             <Text text="This is a Dialog opened from a button in a fragment"/>
         </content>
         <buttons>
