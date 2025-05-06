@@ -4,5 +4,11 @@
     <Dialog 
         id="helloDialog"
         title="Hello {/recepient/name}">
+        <content>
+            <Text text="This is a Dialog opened from a button in a fragment"/>
+        </content>
+        <buttons>
+            <Button text="Close" press=".onCloseDialog"></Button>
+        </buttons>
     </Dialog>
 </core:FragmentDefinition>
