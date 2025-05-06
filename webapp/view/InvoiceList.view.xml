@@ -3,10 +3,26 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
         <List 
+           id="invoiceList"
            headerText="{i18n>invoiceListTitle}"
            class="sapUiResponsiveMargin"
            width="auto"
            items="{invoice>/Invoices}" >
+           <headerToolbar>
+                <Toolbar>
+                    <Title text="{i18n>invoiceListTitle}"/>
+                    <ToolbarSpacer/>
+                    <SearchField
+                        id="invoiceSearchField"
+                        width="100%"
+                        placeholder="{i18n>invoiceSearchPlaceholder}"
+                        liveChange=".onFilterInvoices"
+                        search=".onFilterInvoices"/>
+                    <Button
+                        icon="sap-icon://add"
+                        press=".onAddInvoice"/>
+                </Toolbar>
+            </headerToolbar>
            <items>
                 <ObjectListItem 
                     title="{invoice>Quantity} * {invoice>ProductName}"
